@@ -13,7 +13,7 @@ var TestSuite = function(T) {
       homeView()
       T.expect(navigationDocument.documents.length).toBe(1);
       var doc = navigationDocument.documents[0]
-      T.expect(doc.getElementById('show1').textContent).toBe('titjes')
+      T.expect(doc.getElementById('show1').textContent).toBe('title 1')
       done()
     });
 
@@ -22,7 +22,7 @@ var TestSuite = function(T) {
       setTimeout(function(){
         T.expect(navigationDocument.documents.length).toBe(1);
         var doc = navigationDocument.documents[0]
-        T.expect(doc.getElementById('show1').textContent).toBe('titjes')
+        T.expect(doc.getElementById('show2').textContent).toBe('title 2')
         done()
       },1000);
     });

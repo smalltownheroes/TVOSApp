@@ -2,8 +2,8 @@ var homeTemplate = require('../templates/home.jade')
 module.exports = function() {
   var home = homeTemplate({
     results : [
-      { data: { id:'show1', title: 'titjes', preview: { url: 'lalalal' } } },
-      { data: { id:'show2', title: 'titjes', preview: { url: 'lalalal' } } }
+      { data: { id:'show1', title: 'title 1', preview: { url: 'lalalal' } } },
+      { data: { id:'show2', title: 'titte 2', preview: { url: 'lalalal' } } }
     ]
   })
 
