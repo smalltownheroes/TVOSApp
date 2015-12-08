@@ -1,51 +1,11 @@
-var Pusher = require('pusher');
 var webpack = require("webpack");
 var path = require('path')
-var pusher = new Pusher({
-  appId: process.env.PUSHER_ENV_LIVE_APPID,
-  key: process.env.PUSHER_ENV_LIVE_KEY,
-  secret: process.env.PUSHER_ENV_LIVE_SECRET,
-  keepAlive: true,
-  //encrypted: true
-  // encrypted: ENCRYPTED, // optional, defaults to false 
-  //host: 'HOST', // optional, defaults to api.pusherapp.com 
-  //port: PORT, // optional, defaults to 80 for unencrypted and 443 for encrypted 
-});
 
 module.exports = function(grunt) {
 
   var webpackConfig = require("./webpack.config.js");
 
-  grunt.registerTask('liveReload', 'A task to reload', function(arg1, arg2) {
-    var done = this.async();
-
-    pusher.trigger('TVOSDebug', 'liveReload', { "name": "patrick" },null,function(error,req,resp) {
-      grunt.log.writeln("reload triggered")
-      done(error)
-    });
-  });
-
-  grunt.registerTask('test', 'listen to test output', function(arg1, arg2) {
-    var io = require('socket.io')(8002);
-    io.serveClient(false);
-
-    io.on('connection', function(socket)  {
-  console.log('jasmin socket.io connection');
-
-  socket.on('event', function(data) {
-    console.log('jasmin socket.io data:', data);
-  });
-
-  socket.on('disconnect', function()  {
-    console.log('jasmin socket.io disconnect');
-  });
-    });
-
-    //socket.on('jasmine', function() { console.debug('Jasmine output') });
-
-  });
-
-
+  /*
   grunt.registerTask('console', 'A task to send command to console', function(arg1, arg2) {
     var done = this.async();
 
@@ -68,6 +28,7 @@ module.exports = function(grunt) {
     });
 
   });
+  */
 
   grunt.initConfig({
     "webpack-dev-server": {
