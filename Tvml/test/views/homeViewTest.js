@@ -4,8 +4,6 @@ var TestSuite = function(T) {
   T.xdescribe('HomeView', function() {
     T.afterEach(function(done) {
       navigationDocument.clear()
-      //socket.emit('jasmine',{ data: 'beforememem'})
-      console.log('beforeme')
       done()
     });
 
