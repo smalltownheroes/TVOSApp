@@ -96,10 +96,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TVApplicationControllerDe
             self.appController = TVApplicationController(context: appControllerContext, window: self.window, delegate: self)
             
         }
+
+        // Helper function to grab a screenshot
+        let screenshot: @convention(block) Void -> String = { input in
+            UIGraphicsBeginImageContext(UIScreen.mainScreen().bounds.size)
+            UIScreen.mainScreen().focusedView?.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            var image = UIGraphicsGetImageFromCurrentImageContext()
+            var imageData = UIImagePNGRepresentation(image)
+            var base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+            UIGraphicsEndImageContext()
+            
+            let result=base64String
+            print("[screenshot]: \(result)\n")
+
+            return result
+        }
+        
+
+
+
+
+        jsContext.setObject(unsafeBitCast(screenshot, AnyObject.self), forKeyedSubscript: "screenshot")
+
     }
     
     func appController(appController: TVApplicationController, didStopWithOptions options: [String: AnyObject]?) {
         print("\(__FUNCTION__) invoked with options: \(options)")
     }
+    
     
 }
