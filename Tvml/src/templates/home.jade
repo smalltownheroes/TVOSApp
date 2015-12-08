@@ -1,0 +1,11 @@
+doctype xml
+document
+	listTemplate
+		list
+			section
+				each show in results
+					listItemLockup(id="#{show.data.id}")
+						title #{show.data.title}
+						relatedContent
+							lockup(id="#{show.data.id}")
+								img(src="#{show.data.preview.url}")

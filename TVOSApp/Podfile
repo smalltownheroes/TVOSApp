@@ -1,0 +1,4 @@
+platform :tvos, '9.0'
+
+target 'TVOSApp' do
+end

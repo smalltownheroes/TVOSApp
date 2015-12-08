@@ -1,0 +1,5 @@
+old/
+Pods/
+Podfile.lock
+build/
+TVOSApp.xcworkspace/xcuserdata/

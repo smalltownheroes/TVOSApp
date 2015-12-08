@@ -1,0 +1,4 @@
+dist/
+old/
+node_modules/
+*.swp
